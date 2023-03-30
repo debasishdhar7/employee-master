@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-master-app
+  labels:
+    app: employee-master-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: employee-master-app
+  template:
+    metadata:
+      labels:
+        app: employee-master-app
+    spec:
+      containers:
+        - name: employee-master-app
+          image: employee-master
+          ports:
+            -containerPort: 8080
